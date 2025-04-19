@@ -1,0 +1,2 @@
+_target_: src.losses.vec_smooth_ap.VecSmoothAP
+sigmoid_temperature: 0.01

@@ -1,0 +1,6 @@
+_target_: src.models.croco_feature_extractor.CroCo_FeatureExtractor
+n_pretrained_blocks: 12
+n_frozen_blocks: 9
+vit_backbone: base
+feature_dim: 768
+img_size: 224

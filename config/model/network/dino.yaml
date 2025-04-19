@@ -1,0 +1,5 @@
+_target_: src.models.pure_dino_feature_extractor.Pure_DINO_FeatureExtractor
+n_pretrained_blocks: 11
+n_frozen_blocks: 8
+vit_backbone: vitb8
+feature_dim: 768

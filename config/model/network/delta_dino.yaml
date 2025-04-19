@@ -1,0 +1,11 @@
+_target_: src.models.deltadino_feature_extractor.DeltaDINO_FeatureExtractor
+pretrained_model: dino
+vit_backbone: vitb8
+feature_dim: 768
+cnn_config:
+  channels: [64, 128, 256, 512, 768, 768]
+  dilations: [1, 1, 1, 2, 2, 2]
+  kernel_size: 5
+  downsample_layers: [true, true, true, false, false, false]
+  down_stride: 2
+  

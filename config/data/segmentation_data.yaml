@@ -1,0 +1,12 @@
+defaults:
+  - dataset: matterport
+
+batch_size: 32
+normalize: imagenet
+
+max_num_workers: 32
+pin_memory: true
+
+data_source: Matterport
+data_root: data/matterport3d
+scene_list: data/matterport3d/test_scenes.txt

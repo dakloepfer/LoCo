@@ -1,0 +1,15 @@
+vpr:
+  img_size: [256, 320]
+  datasets_folder: data/anyloc_datasets
+  top_k: [1, 2, 3, 5, 10, 20, 50, 100]
+  dataset_names:
+    - matterport3d_allimgs_iou
+  coarse: # list of coarse configs; each config will have all combinations generated
+    - type: vlad
+      coarse_top_k: 100
+      n_clusters: 128
+      vocab_dataset_names: [[matterport3d_allimgs_iou]]
+  fine: # list of fine configs; each config will have all combinations generated
+    # match_strategy is one of [none, mutual_nn, approx_mutual_nn, filter_{neighbourhood_consistency}_{lowes}]
+    # score_strategy is one of [number, rapid_spatial_scoring, rapid_spatial_scoring_2d, RANSAC]
+    - match_strategy: none

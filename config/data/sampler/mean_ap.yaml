@@ -1,0 +1,7 @@
+_target_: src.data.mean_ap_batchsampler.meanAP_BatchSampler
+batch_size: 64
+n_batches: 100
+min_overlap: 0.2
+max_overlap: 0.9
+patch_locations_file_name: patch_locations_32_40.npy
+# patch_locations_final_size: [11, 14]

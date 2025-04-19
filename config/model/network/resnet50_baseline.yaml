@@ -1,0 +1,3 @@
+_target_: src.models.baselines.ResNet50Baseline
+feature_dim: 768
+dataset_config: null

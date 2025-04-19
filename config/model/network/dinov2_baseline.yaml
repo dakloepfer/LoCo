@@ -1,0 +1,8 @@
+_target_: src.models.baselines.DINOv2_Baseline
+n_blocks: 12
+model: vitb14
+use_value_facet: false
+use_layer_norm: false
+concat_class_token: false
+feature_dim: 768
+dataset_config: null

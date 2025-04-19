@@ -1,0 +1,10 @@
+# when providing lists of configs, will run all combinations of them
+mean_ap:
+  n_queries: 100
+  n_samples: 1000
+  max_radius:
+    - 2.0
+    - 5.0
+  sample_weighted_by_distance:
+    - true
+    - false

@@ -1,0 +1,6 @@
+# this is what was used for the ICCV 2023 Paper
+_target_: src.models.dino_with_head.DINO_with_head
+n_pretrained_blocks: 11
+n_frozen_blocks: 11
+vit_backbone: vitb8
+feature_dim: 64

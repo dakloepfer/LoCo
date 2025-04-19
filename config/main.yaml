@@ -1,0 +1,43 @@
+defaults:
+  - eval:
+    - mean_ap
+    - pixel_corrs
+    - segmentation
+    - vpr
+  - data: patchpair_smoothap_data
+  - model: patchpair_smoothap_model
+  - loss: vec_smooth_ap
+  - optimizer: adam
+
+val_tasks:
+  - mean_average_precision
+
+test_tasks:
+  - mean_average_precision
+  - pixel_correspondences
+
+seed: 42
+device_list: [0, 1, 2, 3]
+
+tqdm_refresh_rate: 10
+save_dir: logs/
+exp_name: patchpair_smoothap_training
+
+logger_name: wandb # [wandb, tensorboard]
+wandb_group: loco-runs
+log_gradients: true
+
+ckpt_path: null
+disable_ckpt: false # useful for debugging
+
+profiler_name: null # [inference, pytorch]
+
+debug: false
+
+# Trainer config; if I start changing this, I should probably move it to a separate file
+max_epochs: -1 #-1 for infintie training
+
+gradient_clipping: null
+accumulate_grad_batches: 1
+detect_anomaly: false
+fast_dev_run: false

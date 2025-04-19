@@ -1,0 +1,36 @@
+defaults:
+  - sampler@train_sampler: patch_pairs
+  - sampler@mean_ap_sampler: mean_ap
+  - sampler@pixel_corrs_sampler: pixel_corrs
+  - dataset@matterport_dataset: matterport
+  - dataset@scannet_dataset: scannet
+  - dataset@scannetpairs_dataset: scannetpairs
+  
+augmentation_type: null
+normalize: imagenet
+shuffle: true
+
+tqdm_refresh_rate: ${tqdm_refresh_rate}
+max_num_workers: 16
+pin_memory: true
+
+val_tasks: ${val_tasks}
+test_tasks: ${test_tasks}
+
+train_data_source: Matterport
+train_data_root: data/matterport3d
+train_scene_list: data/matterport3d/train_scenes.txt
+
+val_data_source: Matterport
+val_data_root: data/matterport3d
+val_scene_list: data/matterport3d/val_scenes.txt
+
+test_data_source:
+  - Matterport
+  - ScanNetPairs
+test_data_root:
+  - data/matterport3d
+  - data/scannet/scannet_test_1500
+test_scene_list:
+  - data/matterport3d/test_scenes.txt
+  - null

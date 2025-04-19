@@ -1,0 +1,16 @@
+defaults:
+  - network: delta_dino
+
+pos_radius: 0.2
+neg_radius: 0.5
+
+# configs needed for setting up the (training) loss configuration for Smooth AP using patch pairs
+saturated_sigmoid_gradient_ratio: 0.002
+max_nonanchor_pos_pairs: 6_000
+max_nonanchor_neg_pairs: 30_000
+subsample_patches: 0.1
+subsample_neg_pairs: 0.1
+frac_pos_pairs_from_same_img: 0.4
+
+pair_chunk_size: 100_000 # trade off time for memory
+anchor_chunk_size: 1024

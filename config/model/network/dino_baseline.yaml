@@ -1,0 +1,6 @@
+_target_: src.models.baselines.DINO_Baseline
+n_blocks: 12
+model: vitb8
+use_value_facet: false
+feature_dim: 768
+dataset_config: null

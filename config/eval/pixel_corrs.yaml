@@ -1,0 +1,14 @@
+# when providing lists of configs, will run all combinations of them. To provide a list as a config, make it a list of lists.
+pixel_corrs:
+  # threshold in pixels for a correct match
+  pixel_thresholds: [[1, 5, 10, 20, 40]]
+  # bins for relative rotation, in degrees
+  angle_bins: [[0, 15, 30, 60, 180]]
+  scale_factor: 0.25
+  n_pixel_corrs: 1000
+  filter_occlusions: [true, false]
+  filter_pixels_outside_image: false
+  filter:
+    - ratio_test
+    - pixel_dists
+  
