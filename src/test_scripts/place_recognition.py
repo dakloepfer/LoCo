@@ -7,7 +7,6 @@ import torch
 import torch.nn.functional as F
 from einops import einsum, rearrange, repeat
 from loguru import logger as loguru_logger
-from MixVPR.main import VPRModel as MixVPR
 from tqdm import tqdm
 
 from src.data.vpr_dataset import VPR_Dataset
@@ -453,6 +452,7 @@ def run_coarse_vpr(general_config, config, dataset, feature_extractor, **kwargs)
         vlad = None
 
     elif config.TYPE.lower() == "mixvpr":
+        from MixVPR.main import VPRModel as MixVPR
 
         mixvpr = MixVPR(
             backbone_arch="resnet50",
