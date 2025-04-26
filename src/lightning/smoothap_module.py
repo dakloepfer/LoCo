@@ -5,6 +5,7 @@ import faiss
 import hydra
 import numpy as np
 import torch
+import wandb
 from einops import einsum, rearrange, repeat
 from kornia.geometry.camera import PinholeCamera
 from kornia.geometry.conversions import convert_points_from_homogeneous
@@ -14,7 +15,6 @@ from loguru import logger
 from torch.nn import functional as F
 
 import lightning.pytorch as pl
-import wandb
 from src.models.concat_model import ConcatModel
 from src.utils.metrics import mean_avg_precision, pixel_correspondence_matching_recall
 from src.utils.misc import (
@@ -71,10 +71,13 @@ class PLModule(pl.LightningModule):
                         key.replace("model.", "", 1).replace("module.", "", 1)
                     ] = state_dict["model"].pop(key)
 
-            if type(self.model) is not ConcatModel:
-                self.model.load_state_dict(state_dict["model"])
-            else:
-                self.model.models[0].load_state_dict(state_dict["model"])
+            if "model" in state_dict:
+                if type(self.model) is not ConcatModel:
+                    self.model.load_state_dict(state_dict["model"])
+                else:
+                    self.model.models[0].load_state_dict(state_dict["model"])
+            else:  # state_dict that only contains weights for the residual network
+                self.model.layers.load_state_dict(state_dict)
             logger.info(f"Loaded pretrained weights from {config.ckpt_path}")
 
         self.devices = config.device_list
